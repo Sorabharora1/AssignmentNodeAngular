@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <h2>All Users</h2>
+    <div class="container-sm">
+        <form class="d-flex">
+        </form>
+    </div>
+    <br>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone No</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let obj of record">
+                <td>{{obj.name}}</td>
+                <td>{{obj.last_name}}</td>
+                <td>{{obj.email}}</td>
+                <td>{{obj.phone_no}}</td>
+                <td>
+                    <!-- (click)="delete_user(obj._id)" -->
+                    <!-- "/editData/{{obj._id}}" -->
+                    <a (click)="delete_user(obj.id)" href="/user-list"><i style="color:red;" class="fa mr-2 fa-trash-o" aria-hidden="true"></i></a>
+                    <a (click)="gotoEdit(obj.id,obj.phone_no)"><i style="color:blue;" class="fa fa-pencil" aria-hidden="true"></i></a>
+                </td>
+            </tr>
+        </tbody>
+        <!-- <pagination-controls (pageChange)="p= $event"></pagination-controls> -->
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!-- <a href="/formdata"><button type="button" class="btn btn-success m-3">Go Back</button></a> -->
+<div class="container ">
+    <h3>Add User User Details</h3>
+    <hr>
+    <form action="" enctype="multipart/form-data">
+
+        <label for="name">First Name</label>
+        <!-- [(ngModel)]="item_Model.fname" -->
+        <input type="text" id="name" name="fname" [(ngModel)]="item_Model.name" class="form-control" placeholder="Your name.." required>
+
+        <label for="name">Last Name</label>
+        <input type="text" id="name" name="lname" [(ngModel)]="item_Model.lastname" placeholder="Your name.." required>
+
+
+        <label for="email"> Email</label>
+        <input type="email" id="email" name="email" [(ngModel)]="item_Model.email" required>
+
+
+        <label for="mobile">Mobile</label>
+        <input type="number" id="mobile" name="mobile" [(ngModel)]="item_Model.phoneno" placeholder="Your Mobile.." required>
+
+        <input type="submit" (click)="addUser()"  value="Submit">
+    </form>
+</div>
