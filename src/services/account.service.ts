@@ -8,10 +8,10 @@ import { HttpParams } from '@angular/common/http';
 })
 export class AccountService {
   [x: string]: any;
-  private adduserurl = environment.apiBaseUrl + 'addUser';
-  private getuserurl = environment.apiBaseUrl + 'getUser';
-  private deleteUserurl = environment.apiBaseUrl + 'deleteUser';
-  private updateurl = environment.apiBaseUrl + 'updateUser';
+  private adduserurl = environment.apiBaseUrl + 'users';
+  private getuserurl = environment.apiBaseUrl + 'usersList';
+  private deleteUserurl = environment.apiBaseUrl + 'users';
+  private updateurl = environment.apiBaseUrl + 'users';
   private getUserByIDUrl = environment.apiBaseUrl + 'users';
   constructor(private baseHttpService: BaseHttpService) { }
 
@@ -34,13 +34,11 @@ export class AccountService {
     // let params = new HttpParams();
     return this.baseHttpService.Delete(this.deleteUserurl+"/"+userid)
       .then(function(response){
-
       });
   }
 
-  getRecordUrl(user_id, phoneno): Promise<any>{
-    // let params = new HttpParams();
-    http://localhost:3000/api/users?user_id=1&phoneno=234567
+  // tslint:disable-next-line: variable-name
+  getRecordUrl(user_id: string, phoneno: string): Promise<any>{
     return this.baseHttpService.Get(this.getUserByIDUrl+"?user_id="+user_id+"&phoneno="+phoneno)
       .then(function(response){
         return response.json();
@@ -49,7 +47,7 @@ export class AccountService {
 
   update_data_url(user_model: User_model): Promise<any>{
     const params = new HttpParams();
-    return this.baseHttpService.Post(this.updateurl, user_model)
+    return this.baseHttpService.Patch(this.updateurl, user_model)
     .then(function(response){
         return response.json();
     });

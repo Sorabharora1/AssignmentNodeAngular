@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
+import { User_model } from 'src/app/models/user_model';
 @Injectable({
   providedIn: 'root'
 })
 export class BaseHttpService {
+  Patch(updateurl: string, user_model: User_model) {
+    throw new Error('Method not implemented.');
+  }
 
   private headers = new Headers({
   'Access-Control-Allow-Origin' : '*',

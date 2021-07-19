@@ -23,15 +23,12 @@ export class FormComponent implements OnInit {
   }
 
   // tslint:disable-next-line: typedef
-  addUser(){    
+  addUser(){
     this.accountService.addUser(this.item_Model).then((response) => {
+      // tslint:disable-next-line: no-debugger
       debugger;
       this.router.navigate(['/user-list']);
-      // this.router.routeReuseStrategy.shouldReuseRoute = function () {
-      //   return false;
-      // };
       console.log('add working');
-      
     });
   }
 }
